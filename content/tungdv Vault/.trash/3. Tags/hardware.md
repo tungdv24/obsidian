@@ -1,0 +1,3 @@
+- [[Note hardware (một số lưu ý)]]
+- [[Note các loại server đang sử dụng trên DC và Lab]]
+- [[Note về Proxmox]]
