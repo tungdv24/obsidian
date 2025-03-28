@@ -1,4 +1,5 @@
-2025-03-27 17:02
+# Extend disk
+28-03-2025
 Tags: #linux 
 
 # Auto extend disk

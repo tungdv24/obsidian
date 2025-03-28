@@ -1,4 +1,5 @@
-2025-03-14 14:51
+# Tìm hiểu về users, quản lí thư mục trong Linux
+28-03-2025
 Tags: #linux 
 
 ## Cách đổi chủ, quyền của một folder

@@ -1,4 +1,5 @@
-2025-02-19 14:38
+# Note các lênh Linux thường dùng
+28-03-2025
 Tags: #linux 
 
 - Các dòng lệnh quản lí user, group:

@@ -1,5 +1,5 @@
-
-2025-02-24 10:46
+# Update SSL Certificates
+28-03-2025
 Tags: #services 
 
 - Installl certbot

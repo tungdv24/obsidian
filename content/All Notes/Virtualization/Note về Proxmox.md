@@ -1,4 +1,5 @@
-2025-02-19 10:15
+# Note về Proxmox
+28-03-2025
 Tags: #virtualization 
 
 # Proxmox

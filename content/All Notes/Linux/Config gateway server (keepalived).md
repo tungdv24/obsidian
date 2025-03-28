@@ -1,4 +1,5 @@
-2025-03-27 17:06
+# Config gateway server (keepalived)
+28-03-2025
 Tags: #linux 
 
 

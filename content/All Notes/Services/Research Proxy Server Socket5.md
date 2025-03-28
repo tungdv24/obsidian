@@ -1,6 +1,6 @@
-2025-03-07 10:49
+# Research Proxy Server Socket5
+28-03-2025
 Tags: #services 
-
 # 1. Proxy là gì
 
 **Proxy** là một server trung gian coi như là một cái gateway giữa người dùng và internet. Về cơ bản là forward traffic và requests từ người dùng đến điạ điểm cần đến. Proxy thường để ẩn trafic, giúp người dùng có thể truy cập sang các nước khác, lọc nội dung và tăng cường bảo mât
