@@ -1,2 +1,0 @@
-- [[Note các lênh Linux thường dùng]]
-- [[Tìm hiểu về users, quản lí thư mục trong Linux]]
