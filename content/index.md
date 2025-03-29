@@ -1,11 +1,16 @@
 ---
-title: Welcome to Tung's Note Pages
+title: Welcome to Tung's Note Pages at Kdata
 ---
-# INDEX
-[HARDWARE](https://dvtung.id.vn/All-Notes/Hardware/)
-[LINUX](https://dvtung.id.vn/All-Notes/Linux/)
-[SERVICES](https://dvtung.id.vn/All-Notes/Services/)
-[VIRTUALIZATION](https://dvtung.id.vn/All-Notes/Services/)
-[WINDOW](https://dvtung.id.vn/All-Notes/Window/)
+# INDEX PAGES
 
-Host by @dvtung2411
+1. [HARDWARE](https://dvtung.id.vn/All-Notes/Hardware/)
+
+2. [LINUX](https://dvtung.id.vn/All-Notes/Linux/)
+
+3. [SERVICES](https://dvtung.id.vn/All-Notes/Services/)
+
+4. [VIRTUALIZATION](https://dvtung.id.vn/All-Notes/Services/)
+
+5. [WINDOW](https://dvtung.id.vn/All-Notes/Window/)
+
+♡ Host by @dvtung2411 ♡
