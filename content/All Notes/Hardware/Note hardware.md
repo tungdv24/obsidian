@@ -15,5 +15,11 @@ Tags: #hardware
 - Cách tháo server ra khỏi rack: Đa phần các tay rack của server Dell là rack trượt. Để tháo server kéo server ra và gạt lẫy lên ở các server Dell còn một số server supermicro cần gạt đối xứng. Sau khi gạt đẩy server đều lên phía trên và nhấc server ra.
 - Tháo tay rack: Thông thường các tay rack của Dell có cơ chế tự lock nên để tháo tay rack ra cần đẩy khỏi nút khỏi lỗ sau đó nhấc tay rack ra
 - Khi config lại server cần reset iDRAC, tài khoản mặc định của iDRAC là root/calvin
+- Khi check cầu hình server cần note lại những thông tin sau
+	- Service tags
+	- CPU
+	- RAM 
+	- Tổng Disk
+	
 
 # References

@@ -1,7 +1,6 @@
 ---
 title: Welcome to Quartz
 ---
+Update on the wayyy
 
-This is a blank Quartz installation.
-See the [documentation](https://quartz.jzhao.xyz) for how to get started.
-Host by Tung
+Host by @dvtung2411

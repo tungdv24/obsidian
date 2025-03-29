@@ -8,10 +8,11 @@ Hiện server Dell thường có các loại 1U, 2U và 3U, nhưng chủ yếu c
 Trong đó 1U thì có PowerEdge R620 và 2U thì là PowerEdge R730xd hoặc PowerEdge R720xd
 Các loại RAM thường dùng có các loại DDR3 và DDR4 với dung lượng là 16 hoặc 32GB
 Về các dòng CPU sẽ có nhiều dòng xeon với tốc độ (GHz) khác nhau
+Cách để check thông tin chi tiết, trong quá trình boot nhấn F2 sau đó vào BIOS check các thông tin như CPU, RAM, Disk
 ## 2. Các loại SSD và HDD
 Về SSD chủ yếu sử dụng SAMSUNG MZ7LH960HAJR (960GB) với khả năng ghi tối đa là 1500GB và số giờ chạy tối đa lên tới 2 triệu giờ. Tuy vậy chủ yếu enterprise recommend ổ đĩa chỉ nên sử dụng trong khoảng 5 năm
 Để check tuổi thọ của ổ đĩa, chủ yếu để đọc các thông số ta dùng smartmonctl (có hỗ trợ cả vCenter)
-## 3. Về RAID
+## 3. RAID
 Thông thường để cấu hình RAID ấn Ctrl + R
 Các dòng card RAID hiện nay đã bỏ đi RAID 0. Tuy vậy RAID 0 cho phép khả năng đọc ghi tốt hơn vì không cần phải đọc qua card RAID. Để cấu hình RAID 0 cần có card RAID H310 mini
 Giải thích về các cấu hình RAID phổ biến:
@@ -23,17 +24,43 @@ Giải thích về các cấu hình RAID phổ biến:
 Ngoài ra còn có khái niệm về hotspare
 - Global Hot Spare: có thể thay thế bất cứ đĩa nào bị lỗi
 - Dedicated Hot Spare: chỉ có thể thay thế phần RAID được chỉ định
-## 4. Về iDRAC
+## 4. iDRAC
 iDRAC chủ yếu để quản lý server trực tiếp
 Nếu server có license iDRAC enterprise thì sẽ có cổng riêng và có quyền truy cập vào console
 Còn nếu server có license iDRAC thấp hơn thì sẽ không có console để thao tác và phải sử dụng một cổng mạng để làm kết nối iDRAC
 
-## 5. Về hệ điều hành
-Về storage sử dụng chủ yếu để host cho các bên qua nextcloud và có thể sử dụng các hệ điều hành như ubuntu hoặc centos
+## 5. Hệ điều hành
+Về **storage** sử dụng chủ yếu để host cho các bên qua nextcloud và có thể sử dụng các hệ điều hành như ubuntu hoặc centos
 Khi đó sử dụng và cấu hình config RAID 5 để đảm bảo không bị lỗi đĩa
+Về **ảo hoá** sử dụng vSphere, ESXi, Proxmox, OpenStạck
+## 6. Mạng
+### Về các loại dây mạng
+Có hai loại dây mạng quang chủ yếu sử dụng trên DC đó là cáp quang (AOC) và dây DAC
+
+| Tiêu chí            | Dây cáp quang (AOC) | Dây DAC |
+|---------------------|---------------------|---------|
+| Tốc độ truyền tải  | Cao                 | Trung bình |
+| Khoảng cách tối đa | Lớn (lên đến hàng chục mét) | Ngắn (thường dưới 10m) |
+| Giá thành         | Đắt hơn              | Rẻ hơn |
+| Ứng dụng          | Data center, kết nối khoảng cách xa | Kết nối ngắn trong rack máy chủ |
+### Về mô hình mạng
+Trên DC được chia thành 2 dải mạng riêng biệt, mạng quản lí (Management Network) và mạng dữ liệu (Data Network)
+#### 1. Mạng quản lí
+**Mục đích** sử dụng chỉ để quản lí thiết bị, với câu hình thông thường chỉ cần một đường 1Gb
+**Chức năng** chủ yếu để kết nối giữa các giao diện quản lí: IPMI, iDRAC, iLO, Dashboard
+Đường mạng sẽ hạn chế truy cập từ mạng bên ngoài để tăng tính bảo mật
+#### 2. Mạng dữ liệu chính
+**Mục đích** chính để truyền tải dữ liệu với tốc độ cao
+**Cấu hình**:
+- Mỗi server sẽ có 2 cổng DAC hoặc AOC sau đó được kết nối tới Switch
+- Các cổng này thường sẽ được chạy với tốc độ cao hơn: 10Gb
+- Có thể cấu hình chạy ở chết độ bonding hoặc LACP để tăng băng thông và có đường backup
+Việc tách riêng **hai đường mạng** này sẽ giúp tăng tính bảo mật cho toàn bộ hệ thống, hiệu suất cũng sẽ được cải thện do dữ liệu quản lí sẽ không làm ảnh hưởng đến băng thông của ứng dụng. Trong trường hợp mạng dữ liệu xảy ra sự cố, admin vẫn có thể truy cập server qua mạng quản lí.
 
 
-## 6. Về dây mạng
-Có hai loại dây mạng quang chủ yếu sử dụng trên DC đó là
+
+
+
 ## References
+https://vienthonghanoi.vn/so-sanh-su-khac-biet-giua-cap-aoc-va-dac-active-optical-cable/
 
