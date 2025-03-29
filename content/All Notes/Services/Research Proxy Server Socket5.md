@@ -1,7 +1,7 @@
-# Research Proxy Server Socket5
+# Research Proxy Server
 28-03-2025
 Tags: #services 
-# 1. Proxy là gì
+# Proxy là gì
 
 **Proxy** là một server trung gian coi như là một cái gateway giữa người dùng và internet. Về cơ bản là forward traffic và requests từ người dùng đến điạ điểm cần đến. Proxy thường để ẩn trafic, giúp người dùng có thể truy cập sang các nước khác, lọc nội dung và tăng cường bảo mât
 
@@ -11,8 +11,9 @@ Tags: #services
 3. **Proxy HTTP**: Chỉ thiết kế để xử lý HTTP và HTTPS, thường dùng cho việc truy cập các trang web trên internet, lọc nội dung và lưu trữ cache
 4. **Proxy SOCKS**: Proxy linh hoạt hơn và xử lí nhiều giao thức hơn ví dụ như HTTP, FTP và vẫn có một số tính năng ẩn danh khác
 
-# 2. Cách cấu hình proxy sử dụng Shadowsocks
 
 
 
 # References
+https://viettelidc.com.vn/tin-tuc/proxy-server-la-gi-tat-tan-tat-nhung-dieu-ban-nen-biet-ve-proxy-server-3129
+https://wiki.matbao.net/proxy-server-la-gi-cach-ket-noi-internet-an-toan-cho-nguoi-dung/
