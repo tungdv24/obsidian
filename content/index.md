@@ -1,5 +1,5 @@
 ---
-title: Welcome to Tung's Note Pages at Kdata
+title: Welcome to Tung's Note Pages
 ---
 # INDEX PAGES
 
