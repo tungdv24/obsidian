@@ -13,4 +13,8 @@ title: Welcome to Tung's Note Pages
 
 5. [WINDOW](https://dvtung.id.vn/All-Notes/Window/)
 
+## Serveral Other Tags
+
+#docker #monitor #venv 
+
 ♡ Host by @dvtung2411 ♡
