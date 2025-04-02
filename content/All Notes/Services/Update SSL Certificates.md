@@ -1,6 +1,6 @@
 # Update SSL Certificates
 28-03-2025
-Tags: #services 
+Tags: #services #html
 
 - Installl certbot
 - Run Certbot (make sure port 80 and 443 are open)

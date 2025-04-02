@@ -125,3 +125,56 @@ curl -s -X POST https://api.telegram.org/bot$token/sendMessage \
 Ví dụ:
 ![[Ảnh màn hình 2025-03-31 lúc 15.42.31.png]]
 
+# 3. Cảnh báo SSH Login
+##### Khác với cảnh báo login SSH cơ bản, cảnh báo này đã được update thêm một số thông tin nhưu tổng số người đang SSH và username của những người đang SSH
+```bash
+#!/bin/bash
+# Telegram Bot Token and Chat ID
+TOKEN=""
+ID=""
+
+# Fetch system details
+HOSTNAME=$(hostname -f)
+HOST_IP=$(hostname -I | awk '{print $1}')  # Get host's primary IP address
+DATE="$(date +"%H:%M:%S_%Y-%m-%d")"
+
+# Get active SSH sessions count and list users
+SSH_SESSIONS=$(who | grep -c "pts")
+SSH_USERS=$(who | awk '{print "- " $1}' | uniq | paste -sd ' ' -)
+
+if [ "$PAM_TYPE" = "open_session" ]; then
+    SSH_SESSIONS=$((SSH_SESSIONS + 1))
+    SSH_USERS="- $PAM_USER $SSH_USERS"
+fi
+
+# Build the message based on action type
+if [ "$PAM_TYPE" = "open_session" ]; then
+    MESSAGE="✅ New SSH connection \"<b>$PAM_USER</b>@${HOSTNAME}_${HOST_IP}\" from IP address <code>$PAM_RHOST</code> at $DATE
+Active SSH Sessions: <b>$SSH_SESSIONS</b>
+Currently Logged-in Users: $SSH_USERS"
+elif [ "$PAM_TYPE" = "close_session" ]; then
+    MESSAGE="❌ Closed SSH connection \"<b>$PAM_USER</b>@${HOSTNAME}_${HOST_IP}\" from IP address <code>$PAM_RHOST</code> at $DATE
+Active SSH Sessions: <b>$SSH_SESSIONS</b>
+Currently Logged-in Users: $SSH_USERS"
+else
+    MESSAGE="<b>$PAM_USER</b> did action: '<b>$PAM_TYPE</b>' at $DATE on <b>${HOSTNAME}_${HOST_IP}</b> from IP: <code>$PAM_RHOST</code> !
+Active SSH Sessions: <b>$SSH_SESSIONS</b>
+
+Currently Logged-in Users: $SSH_USERS"
+fi
+
+# Send the message to Telegram using the bot API
+URL="https://api.telegram.org/bot$TOKEN/sendMessage"
+curl -s -X POST $URL -d chat_id=$ID -d text="$MESSAGE" -d parse_mode='HTML' >/dev/null 2>&1
+exit 0
+```
+
+Ví dụ:
+![[Ảnh màn hình 2025-04-02 lúc 09.52.23.png]]
+
+##### Notes: 
+- Để set up cảnh báo cần enable PAM trong file /etc/ssh/ssd_config: ``UsePAM yes``
+- Add yêu cầu file ssh tại file /etc/pam.d/sshd
+```bash
+session    required     pam_exec.so /etc/security/telegram_login_alert.sh
+```
