@@ -19,10 +19,12 @@ Tags: #services
 	- Stop: Dừng máy ảo
 	- Reboot: Reboot máy ảo
 	- Take Snapshot (khi nhấn sẽ tạo ra một bản snapshot với tên user và ngày giờ đã tạo). User có thể quản lí và revert snapshot nếu cần. Sau khi tạo snapshot, nhấn refresh để view các grafana panel
+	  
 	  ![[Ảnh màn hình 2025-04-25 lúc 14.49.00.png]]
 	- Delete: Xoá máy ảo (một khi đã xoá sẽ không thể quay lại)
 
 - Người dùng có thể xem các thông tin chi tiết ở cột details
+
   ![[Ảnh màn hình 2025-04-25 lúc 14.54.58.png]]
 
 # Clone VMs
