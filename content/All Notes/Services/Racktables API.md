@@ -120,7 +120,7 @@ try:
     db = mysql.connector.connect(
         host="localhost",
         user="racktables",
-        password="", # ĐỔI PASS Ở ĐÂY
+        password="StrongPassword",  # ĐỔI PASS Ở ĐÂY
         database="racktables"
     )
     cursor = db.cursor()
@@ -173,7 +173,7 @@ else:
     print("✅ Basic table structure check passed.")
 
 # 2. Read header from CSV to get dynamic attribute fields
-csv_file = 'page3.csv'
+csv_file = 'page5.csv'
 
 try:
     with open(csv_file, 'r') as file:
@@ -210,17 +210,19 @@ else:
 # 5. Check Tags and OS Versions existence
 tags_in_csv = set()
 os_versions_in_csv = set()
+servers_in_csv = []
 
 with open(csv_file, 'r') as file:
     reader = csv.DictReader(file)
     for row in reader:
+        servers_in_csv.append(row['Server'].strip())
         tags_in_csv.add(row['Tags'].strip())
         os_versions_in_csv.add(row['OS version'].strip())
 
 # Check Tags
 missing_tags = []
 for tag in tags_in_csv:
-    if tag:  # Only check non-empty tags
+    if tag:
         cursor.execute("SELECT id FROM TagTree WHERE tag = %s", (tag,))
         if not cursor.fetchone():
             missing_tags.append(tag)
@@ -244,6 +246,20 @@ if missing_os_versions:
     sys.exit(1)
 else:
     print("✅ All OS Versions from CSV found in Dictionary.")
+
+# 6. Check for duplicate server names in Object table
+cursor.execute("SELECT name FROM Object")
+existing_servers = {row[0] for row in cursor.fetchall()}
+
+duplicate_servers = [server for server in servers_in_csv if server in existing_servers]
+
+if duplicate_servers:
+    print("\n❌ The following servers already exist in the database:")
+    for name in duplicate_servers:
+        print(f" - {name}")
+    sys.exit(1)
+else:
+    print("✅ No duplicate server names found in Object table.")
 
 # Final success
 print("\n✅✅✅ FULL DATABASE AND CSV VALIDATION PASSED ✅✅✅")
