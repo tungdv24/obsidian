@@ -4,6 +4,8 @@ Tags: #services
 
 # Login và Main Page
 
+- Trang chủ hiện được host tại http://192.168.10.170
+- Khi log vào sẽ thấy hai server, chọn đúng server được admin cấp để có thể log vào web![[Ảnh màn hình 2025-05-10 lúc 14.13.27.png]]
 - Login vào bằng tài khoản được admin cấp
   ![[Ảnh màn hình 2025-04-25 lúc 14.34.23.png]]!
 - Giao diện trang chính
@@ -41,8 +43,8 @@ Tags: #services
 	- Note: Chỉ khi clone vm từ đúng template của user mới có thể quản lí và ssh được
       ![[Ảnh màn hình 2025-04-25 lúc 15.17.07.png]]
       - Khai báo chính xác số lượng vms và số IPs (nếu số lương vm là 3 thí sẽ cần 3 IP)
-      ![[Ảnh màn hình 2025-04-25 lúc 15.18.21.png]]![[Ảnh màn hình 2025-04-25 lúc 15.19.02.png]]
-	  - Để tránh trùng lặp IP trong hệ thống phong lab, click vào IP Dashboard, nhập user name sẽ hiện ra các IP của mình
+      ![[Ảnh màn hình 2025-04-25 lúc 15.18.21.png]]
+      - Để tránh trùng lặp IP trong hệ thống phong lab, click vào IP Dashboard, nhập login user sẽ hiện ra các IP của mình![[Ảnh màn hình 2025-05-10 lúc 14.16.25.png]]
 	  ![[Ảnh màn hình 2025-04-28 lúc 08.59.25.png]]
 	- Sau khi nhập tên user được cấp sẽ có một số IP thuộc về user và một số IP chưa on. Sử dụng IP báo down để cấp cho vm được clone. 
 	 ![[Ảnh màn hình 2025-04-28 lúc 09.01.24.png]]
@@ -59,3 +61,4 @@ Tags: #services
      
 # VM Logs
 ![[Ảnh màn hình 2025-04-28 lúc 09.05.46.png]]
+
